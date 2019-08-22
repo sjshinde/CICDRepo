@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Scorecard xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="OrderCount" description="" GUID="C3F671E2-EC79-963B-F091-616367D7B55F" ownerProjectName="BEUser" scorecard="true">
+  <properties name="OrderCountTotal" ownerProjectName="BEUser" ownerPath="/Concepts/OrderCount" historyPolicy="1" historySize="10"/>
+</element:Scorecard>

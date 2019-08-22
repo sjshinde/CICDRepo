@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:ns="http://www.tibco.com/schemas/BEService/Schema.xsd" 
+xmlns:tns="http://www.tibco.com/AbstractOrderService" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tibco.com/AbstractOrderService">
+ <wsdl:types>
+	<xsd:schema xmlns="http://www.tibco.com/schemas/BEService/Schema.xsd" 
+			targetNamespace="http://www.tibco.com/schemas/BEService/Schema.xsd"	 elementFormDefault="qualified"	 attributeFormDefault="unqualified">
+		<xsd:element name="Input">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element ref="CustID"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="Output">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element ref="CustID"/>
+					<xsd:element ref="OrderID"/>
+					<xsd:element ref="OrderAmount"/>
+					<xsd:element ref="OrderDateTime"/>
+					<xsd:element ref="OrderPriority"/>
+					<xsd:element ref="OrderStatus"/>
+					<xsd:element ref="ShipToState"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		<xsd:element name="CustID" type="xsd:string"/>
+		<xsd:element name="OrderID" type="xsd:string"/>
+		<xsd:element name="OrderAmount" type="xsd:double"/>
+		<xsd:element name="OrderDateTime" type="xsd:dateTime"/>
+		<xsd:element name="OrderPriority" type="xsd:string"/>
+		<xsd:element name="OrderStatus" type="xsd:string"/>
+		<xsd:element name="ShipToState" type="xsd:string"/>
+		<xsd:element name="OutputSchema">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element ref="Output" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+</wsdl:types>
+    <wsdl:message name="InputMessage">
+        <wsdl:part name="InMsg" element="ns:Input"/>
+    </wsdl:message>
+    <wsdl:message name="OutputMessage">
+        <wsdl:part name="OutMsg" element="ns:OutputSchema"/>
+    </wsdl:message>
+    <wsdl:portType name="OrderPort">
+        <wsdl:operation name="OrderStatusOp">
+            <wsdl:input message="tns:InputMessage"/>
+            <wsdl:output message="tns:OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</definitions>

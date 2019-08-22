@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel:Channel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:channel="http:///com/tibco/cep/designtime/core/model/service/channel" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" namespace="/Channels/" folder="/Channels/" name="JMSChannel" description="" GUID="7EEE4F77-5D82-C4DC-556F-715087CF4A10" ownerProjectName="BEUser">
+  <driver label="JMS" channel="/">
+    <properties>
+      <properties xsi:type="designtime:SimpleProperty" name="ProviderURL" value="tcp://localhost:7222"/>
+      <properties xsi:type="designtime:SimpleProperty" name="UserName" value=""/>
+      <properties xsi:type="designtime:SimpleProperty" name="Password" value=""/>
+      <properties xsi:type="designtime:SimpleProperty" name="IsTransacted" value=""/>
+      <properties xsi:type="designtime:SimpleProperty" name="ClientID" value=""/>
+    </properties>
+    <destinations name="AllOrderTxnMsgs" description="" GUID="63BDF5CC-4D3B-58A3-671A-C99F589119B3" ownerProjectName="BEUser" eventURI="/Events/OrderTxnEvent" serializerDeserializerClass="com.tibco.cep.driver.jms.serializer.TextMessageSerializer" driverConfig="//@driver">
+      <properties>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ON_DESERIALIZE"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Queue" value="false"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Name" value="%%NewOrders%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Selector" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="DeliveryMode" value="2"/>
+        <properties xsi:type="designtime:SimpleProperty" name="AckMode" value="1"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Priority" value="4"/>
+        <properties xsi:type="designtime:SimpleProperty" name="TTL" value="0"/>
+        <properties xsi:type="designtime:SimpleProperty" name="DurableSuscriberName" value="%%Deployment%%:%%EngineName%%:%%SessionName%%:%%ChannelURI%%:%%DestinationName%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ON_DESERIALIZE"/>
+      </properties>
+    </destinations>
+    <destinations name="SuspendAccount" description="" GUID="DD23B94C-33FC-2490-BEFB-85D56FBE584C" ownerProjectName="BEUser" serializerDeserializerClass="com.tibco.cep.driver.jms.serializer.BytesMessageSerializer" driverConfig="//@driver">
+      <properties>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ON_SERIALIZE"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Queue" value="false"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Name" value="%%Suspended%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Selector" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="DeliveryMode" value="2"/>
+        <properties xsi:type="designtime:SimpleProperty" name="AckMode" value="1"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Priority" value="4"/>
+        <properties xsi:type="designtime:SimpleProperty" name="TTL" value="0"/>
+        <properties xsi:type="designtime:SimpleProperty" name="DurableSuscriberName" value="%%Deployment%%:%%EngineName%%:%%SessionName%%:%%ChannelURI%%:%%DestinationName%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ON_SERIALIZE"/>
+      </properties>
+    </destinations>
+    <driverType xsi:type="channel:DriverTypeInfo" driverTypeName="JMS"/>
+  </driver>
+</channel:Channel>

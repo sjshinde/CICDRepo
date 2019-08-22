@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><element:Concept xmlns:element="http:///com/tibco/cep/designtime/core/model/element" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0" namespace="/Concepts/" folder="/Concepts/" name="Order" description="" GUID="629CF6B5-1200-E3C9-E5CA-8ECB721C9ED3" ownerProjectName="BEUser" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="OrderID" ownerProjectName="BEUser" ownerPath="/Concepts/Order"/>
+  <properties name="OrderAmount" ownerProjectName="BEUser" type="double" ownerPath="/Concepts/Order"/>
+  <properties name="OrderDateTime" ownerProjectName="BEUser" type="DateTime" ownerPath="/Concepts/Order"/>
+  <properties name="OrderPriority" ownerProjectName="BEUser" ownerPath="/Concepts/Order"/>
+  <properties name="OrderStatus" ownerProjectName="BEUser" ownerPath="/Concepts/Order"/>
+  <properties name="OrderDiscountPercent" ownerProjectName="BEUser" type="int" ownerPath="/Concepts/Order"/>
+  <properties name="CustID" ownerProjectName="BEUser" ownerPath="/Concepts/Order"/>
+  <properties name="ShipToState" ownerProjectName="BEUser" ownerPath="/Concepts/Order"/>
+</element:Concept>

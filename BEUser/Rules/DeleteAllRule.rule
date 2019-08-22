@@ -1,0 +1,26 @@
+/**
+ * @description 
+ * @author ppawale-t470
+ */
+
+rule Rules.DeleteAllRule {
+attribute {
+priority = 5;
+forwardChain = true;
+}
+declare {
+
+Concepts.OrderTxn ordertxn;
+Events.OrderTxnEvent ordertxnevent;
+}
+when {
+
+}
+then {
+System.debugOut("orderTxn deleted");
+Instance.deleteInstance(ordertxn);
+System.debugOut("orderTxn event consumed");
+Event.consumeEvent(ordertxnevent);
+
+}
+}

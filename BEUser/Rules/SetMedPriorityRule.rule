@@ -1,0 +1,26 @@
+/**
+ * @description 
+ * @author ppawale-t470
+ */
+rule Rules.SetMedPriorityRule {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Concepts.Order order;
+	Concepts.Customer customer;
+	}
+	when {
+		order.OrderPriority!="MED";
+customer.ACCOUNTLEVEL=="GOLD";
+customer.ACCOUNTID==order.CustID;
+	}
+	then {
+		if(Instance.isNew(order))
+		{
+			order.OrderPriority="MED";
+			System.debugOut("Order "+order.OrderID+" Priority "+order.OrderPriority);
+		}
+	}
+}

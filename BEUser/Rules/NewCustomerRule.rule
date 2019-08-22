@@ -1,0 +1,27 @@
+/**
+ * @description 
+ * @author ppawale-t470
+ */
+rule Rules.NewCustomerRule {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+	Concepts.OrderTxn ordertxn;
+	}
+	when {
+	}
+	then {Database.setCurrentConnection("/SharedResources/JDBCConnection");
+		Concepts.Customer cust=Instance.getByExtId(ordertxn.CustId);
+		if (cust == null) {
+		cust=Instance.createInstance("xslt://{{/Concepts/Customer}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" version=\"2.0\" exclude-result-prefixes=\"xsl xsd\"><xsl:output method=\"xml\"/><xsl:param name=\"ordertxn\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$ordertxn/@extId\"><xsl:attribute name=\"extId\"><xsl:value-of select=\"$ordertxn/@extId\"/></xsl:attribute></xsl:if><xsl:if test=\"$ordertxn/CustId\"><ACCOUNTID><xsl:value-of select=\"$ordertxn/CustId\"/></ACCOUNTID></xsl:if><ACCOUNTSTATUS><xsl:value-of select=\"&quot;GOOD&quot;\"/></ACCOUNTSTATUS><ACCOUNTLEVEL><xsl:value-of select=\"&quot;SILVER&quot;\"/></ACCOUNTLEVEL><xsl:if test=\"$ordertxn/OrderAmount\"><TOTALPOINTS><xsl:value-of select=\"$ordertxn/OrderAmount\"/></TOTALPOINTS></xsl:if><xsl:if test=\"$ordertxn/ShipToState\"><SHIPTOSTATE><xsl:value-of select=\"$ordertxn/ShipToState\"/></SHIPTOSTATE></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+		//Database.insert(cust);
+		System.debugOut("**** New Customer Object Created with ID: " + cust.ACCOUNTID);
+		
+		}
+		else{
+			System.debugOut(" *** Customer already exists with ID: " + cust.ACCOUNTID);
+}
+	}
+}
