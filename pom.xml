@@ -32,4 +32,10 @@
     <reuseForks>false</reuseForks>
   </properties>
 </project>
-
+<distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>snshinde-t440-snapshots</name>
+        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
