@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by TIBCO BusinessEvents POM generation utility be-maven-pom-generator
+  Creation datetime: Wed Aug 21 17:38:04 IST 2019
+-->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tibco.be</groupId>
+  <artifactId>BEUser</artifactId>
+  <version>1.0.0</version>
+  <packaging>ear</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.tibco.be.maven.plugin</groupId>
+        <artifactId>be-maven-plugin</artifactId>
+        <version>5.4.1</version>
+        <extensions>true</extensions>
+        <configuration>
+          <beProjectDetails>
+            <beHome>C:/TibcoBEHome/be/5.4</beHome>
+            <earLocation>target</earLocation>
+            <projLibLocation>target</projLibLocation>
+          </beProjectDetails>
+          <projLibResources/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies/>
+  <properties>
+    <reuseForks>false</reuseForks>
+  </properties>
+</project>
+
