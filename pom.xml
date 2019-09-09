@@ -39,4 +39,11 @@
         <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
     </snapshotRepository>
 </distributionManagement>
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>snshinde-t440-releases</name>
+        <url>http://localhost:8081/artifactory/libs-release-local</url>
+    </repository>
+</distributionManagement>
 
